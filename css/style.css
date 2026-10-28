@@ -1,0 +1,254 @@
+/* Disappearance of Water: shared styles
+   White background, black sans-serif text, navigation bar at top. */
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #5e5e5e;
+  --rule: #dcdcdc;
+  --measure: 40rem;   /* reading width for text */
+  --wide: 60rem;      /* width for images and poster */
+  --font: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-padding-top: 5rem; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--black); text-underline-offset: 0.2em; }
+
+a:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
+/* ---------- Navigation ---------- */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--white);
+  border-bottom: 1px solid var(--black);
+}
+
+.site-nav .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+
+.site-nav .brand {
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.75rem;
+}
+
+.site-nav ul a {
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav ul a:hover { border-bottom-color: var(--rule); }
+
+.site-nav ul a[aria-current="page"] { border-bottom-color: var(--black); }
+
+/* ---------- Page layout ---------- */
+
+main {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+.text {
+  max-width: var(--measure);
+}
+
+h1, h2, h3 {
+  line-height: 1.15;
+  font-weight: 600;
+  margin: 0;
+}
+
+h1 { font-size: clamp(2.4rem, 7vw, 4.5rem); letter-spacing: -0.02em; }
+h2 { font-size: 1.75rem; letter-spacing: -0.01em; margin: 3.5rem 0 1.25rem; }
+h3 { font-size: 1.2rem; margin: 2.5rem 0 0.5rem; }
+
+p { margin: 0 0 1.15rem; }
+
+.lede {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-top: 1.25rem;
+}
+
+.meta { color: var(--gray); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 3.5rem 0;
+}
+
+/* ---------- Title treatment: the word "Water" fades letter by letter ---------- */
+
+.fade span:nth-child(1) { opacity: 1; }
+.fade span:nth-child(2) { opacity: 0.72; }
+.fade span:nth-child(3) { opacity: 0.48; }
+.fade span:nth-child(4) { opacity: 0.28; }
+.fade span:nth-child(5) { opacity: 0.12; }
+
+/* ---------- Hero (About page) ---------- */
+
+.hero { margin-bottom: 3rem; }
+
+.hero figure { margin: 2.5rem 0 0; }
+
+/* ---------- Artwork page ---------- */
+
+.movement {
+  margin-top: 5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--black);
+}
+
+.movement:first-of-type { margin-top: 3rem; }
+
+.movement h2 { margin: 0 0 0.5rem; }
+
+.movement > p { max-width: var(--measure); color: var(--gray); }
+
+.work { margin: 3.5rem 0 0; }
+
+.work figure { margin: 0 0 1.25rem; }
+
+.work img {
+  width: auto;
+  max-height: 80vh;
+}
+
+.caption {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.medium {
+  font-size: 0.95rem;
+  color: var(--gray);
+  margin: 0 0 1.25rem;
+}
+
+.work .text p:last-child { margin-bottom: 0; }
+
+/* ---------- Press page: poster ---------- */
+
+.poster {
+  max-width: 34rem;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--black);
+  padding: 2rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0 1rem;
+  overflow: hidden;
+}
+
+.poster .kicker { font-size: 0.9rem; margin: 0; }
+
+.poster .title {
+  font-size: clamp(2.2rem, 9vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.poster .image {
+  flex: 1 1 auto;
+  min-height: 6rem;
+  background: url("../images/02-burtynsky-row-irrigation.jpg") center / cover no-repeat;
+}
+
+.poster .artists {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin: 1.25rem 0 0;
+}
+
+.poster .footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--black);
+}
+
+.poster .footer strong { font-weight: 600; }
+
+.press-release header { margin-bottom: 2rem; }
+
+.press-release header p { margin: 0; }
+
+.press-release .release-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+}
+
+.site-footer .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+
+.site-footer p { margin: 0; max-width: var(--measure); }
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 600px) {
+  body { font-size: 1rem; }
+  main { padding-top: 2.5rem; }
+  .site-nav ul { gap: 1.25rem; }
+  .poster { padding: 1.25rem; }
+}
